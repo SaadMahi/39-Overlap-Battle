@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overlap</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #09042a;
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+      }
+
+      .container {
+        width: 100vw;
+        height: 50vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+      }
+
+      .container > * {
+        width: 150px;
+        height: 150px;
+
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .circle-1 {
+        background: #e78481;
+
+        transform: translateX(50px);
+      }
+      .circle-2 {
+        background: #7b3f61;
+
+        transform: translateX(-50px);
+
+        overflow: hidden;
+      }
+
+      .circle-2::after {
+        content: "";
+        width: 150px;
+        height: 150px;
+
+        display: inline-block;
+
+        border-radius: 50%;
+        background: #09042a;
+
+        transform: translateX(100px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+    </div>
+  </body>
+</html>
